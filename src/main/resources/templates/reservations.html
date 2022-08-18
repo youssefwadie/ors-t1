@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Reservation</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.css}">
+</head>
+<body>
+<div class="container-fluid p-3">
+    <a th:href="@{/reservation/new}" class="btn btn-primary mb-2">Add Reservation</a>
+
+    <div th:if="${message != null}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
+    <table class="table table-bordered table-striped table-hover table-responsive-xl">
+        <thead class="table-header table-dark">
+        <tr>
+            <th>PNR</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Class Type</th>
+            <th>Journey Date</th>
+            <th>From</th>
+            <th>To</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="reservation : ${reservations}">
+            <td>[[${reservation.id}]]</td>
+            <td>[[${reservation.name}]]</td>
+            <td>[[${reservation.age}]]</td>
+            <td>[[${reservation.classType.description}]]</td>
+            <td>[[${reservation.journeyDate}]]</td>
+            <td>[[${reservation.source}]]</td>
+            <td>[[${reservation.destination}]]</td>
+            <td>
+                <div>
+                    <a class="fa-solid fa-ban fa-2x link-danger text-decoration-none" th:href="@{'/reservation/' + ${reservation.id}}"
+                       title="Cancel this reservation"></a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

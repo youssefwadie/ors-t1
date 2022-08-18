@@ -1,23 +1,17 @@
 package com.github.youssefwadie.ors.entities;
 
-import java.time.LocalDate;
-
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.Min;
-
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import lombok.Data;
+import javax.persistence.*;
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import java.time.LocalDate;
 
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
 @Entity
 @Table(name = "reservations")
 public class Reservation {
@@ -27,6 +21,7 @@ public class Reservation {
 	private String name;
 
 	@Min(value = 8)
+	@Max(value = 72)
 	private Integer age;
 
 	@ManyToOne
@@ -37,7 +32,9 @@ public class Reservation {
 	private ClassType classType;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@FutureOrPresent
 	private LocalDate journeyDate;
+
 	private String source;
 	private String destination;
 

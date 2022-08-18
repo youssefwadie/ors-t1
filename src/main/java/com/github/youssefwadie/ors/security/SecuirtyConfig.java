@@ -29,7 +29,6 @@ public class SecuirtyConfig {
 			request.antMatchers("/js/**", "/webjars/**").permitAll();
 			request.anyRequest().authenticated();
 		});
-		http.csrf().disable();
 
 		return http.build();
 	}

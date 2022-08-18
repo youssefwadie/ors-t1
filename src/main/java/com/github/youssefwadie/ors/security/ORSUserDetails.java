@@ -3,6 +3,7 @@ package com.github.youssefwadie.ors.security;
 import java.io.Serial;
 import java.util.Collection;
 
+import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -11,6 +12,7 @@ import com.github.youssefwadie.ors.entities.User;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
+@Getter
 public class ORSUserDetails implements UserDetails {
 	@Serial
 	private static final long serialVersionUID = -2936821934711672746L;
