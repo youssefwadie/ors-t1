@@ -1,2 +1,2 @@
 # ors-t1
-Dead Simple Online Reservation System
+Dead Simple Reservation System
