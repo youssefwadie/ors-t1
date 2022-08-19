@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Reservation [[${reservation.id}]]</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container-fluid">
+    <form
+            th:action="@{'/reservation/delete/' + ${reservation.id}}"
+            method="post"
+            style="max-width: 700px; margin: 0 auto">
+        <div class="border border-secondary rounded p-4">
+            <p class="text-lg-center">
+                Reservation PNR: [[${reservation.id}]]
+            </p>
+            <div th:replace="fragments :: reservation_detail('Name', 'name', ${reservation.name})"></div>
+            <div th:replace="fragments :: reservation_detail('Age', 'age', ${reservation.age})"></div>
+            <div th:replace="fragments :: reservation_detail('Journey Date', 'journeyDate', ${reservation.journeyDate})"></div>
+            <div th:replace="fragments :: reservation_detail('Class Type', 'classType', ${reservation.classType.description})"></div>
+            <div th:replace="fragments :: reservation_detail('From', 'source', ${reservation.source})"></div>
+            <div th:replace="fragments :: reservation_detail('To', 'destination', ${reservation.destination})"></div>
+            <div th:replace="fragments :: reservation_detail('Train Number', 'trainNumber', 50)"></div>
+            <div th:replace="fragments :: reservation_detail('Train Name', 'trainName', 'Fast Train')"></div>
+            <div class="form-group text-center mt-3">
+                <a th:href="@{/reservation}" class="btn btn-primary text-decoration-none" style="width: 50%">Back</a>
+                <hr class="mt-2 mb-2">
+                <input type="submit" value="Cancel" class="btn btn-danger mb-auto" style="width: 50%">
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

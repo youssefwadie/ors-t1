@@ -7,7 +7,7 @@ import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.github.youssefwadie.ors.entities.User;
+import com.github.youssefwadie.ors.model.User;
 
 import lombok.RequiredArgsConstructor;
 

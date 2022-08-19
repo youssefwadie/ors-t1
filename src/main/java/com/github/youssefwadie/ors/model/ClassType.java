@@ -1,4 +1,4 @@
-package com.github.youssefwadie.ors.entities;
+package com.github.youssefwadie.ors.model;
 
 
 public enum ClassType {

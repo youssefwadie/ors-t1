@@ -11,7 +11,7 @@ public class MainController {
 		return "login";
 	}
 	@GetMapping("")
-	public String getReservationForm() {
+	public String listReservations() {
 		return "redirect:/reservation";
 	}
 }

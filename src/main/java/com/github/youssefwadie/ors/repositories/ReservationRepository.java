@@ -2,7 +2,7 @@ package com.github.youssefwadie.ors.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.github.youssefwadie.ors.entities.Reservation;
+import com.github.youssefwadie.ors.model.Reservation;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;

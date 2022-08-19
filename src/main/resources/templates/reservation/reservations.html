@@ -10,16 +10,21 @@
 <body>
 <div class="container-fluid p-3">
     <a th:href="@{/reservation/new}" class="btn btn-primary mb-2">Add Reservation</a>
+    <a th:href="@{/reservation/cancellation-request}" class="btn btn-danger mb-2">Cancel Reservation</a>
 
     <div th:if="${message != null}" class="alert alert-success text-center">
         [[${message}]]
     </div>
+
+    <div th:if="${info != null}" class="alert alert-info text-center">
+        [[${info}]]
+    </div>
+
     <table class="table table-bordered table-striped table-hover table-responsive-xl">
         <thead class="table-header table-dark">
         <tr>
             <th>PNR</th>
             <th>Name</th>
-            <th>Age</th>
             <th>Class Type</th>
             <th>Journey Date</th>
             <th>From</th>
@@ -31,15 +36,14 @@
         <tr th:each="reservation : ${reservations}">
             <td>[[${reservation.id}]]</td>
             <td>[[${reservation.name}]]</td>
-            <td>[[${reservation.age}]]</td>
             <td>[[${reservation.classType.description}]]</td>
             <td>[[${reservation.journeyDate}]]</td>
             <td>[[${reservation.source}]]</td>
             <td>[[${reservation.destination}]]</td>
             <td>
-                <div>
-                    <a class="fa-solid fa-ban fa-2x link-danger text-decoration-none" th:href="@{'/reservation/' + ${reservation.id}}"
-                       title="Cancel this reservation"></a>
+                <div class="text-center">
+                    <a class="fa-solid fa-circle-info fa-2x link-primary text-decoration-none" th:href="@{'/reservation/' + ${reservation.id}}"
+                       title="View this reservation"></a>
                 </div>
             </td>
         </tr>

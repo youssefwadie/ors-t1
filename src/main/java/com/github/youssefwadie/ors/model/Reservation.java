@@ -1,4 +1,4 @@
-package com.github.youssefwadie.ors.entities;
+package com.github.youssefwadie.ors.model;
 
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;

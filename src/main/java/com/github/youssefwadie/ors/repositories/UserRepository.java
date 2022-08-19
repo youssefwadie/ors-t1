@@ -3,7 +3,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.github.youssefwadie.ors.entities.User;
+import com.github.youssefwadie.ors.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
